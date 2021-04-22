@@ -1,4 +1,10 @@
 import { html, css, LitElement } from 'lit-element';
+
+// not sure what this is but screams of React / Webpack based build tooling
+// generic import of "images" from some location is not how "the platform" operates
+// and is a great example of why I don't like build tooling that is overly complex
+// sass suffers this same issue
+
 /** import { images } from '../assets/Themes/Images'; 
 
 /**
@@ -10,25 +16,16 @@ import { html, css, LitElement } from 'lit-element';
  */
 
 export class ProductOffering extends LitElement {
+  // @todo make sure we ship this as an array of styles
   static get styles() {
     return css`
       :host {
         display: block;
-        padding: 25px;
+        padding: var(--product-offering-padding, 25px);
         color: var(--product-offering-text-color, #000);
         font-family: Verdana, sans-serif;
       }
-      #grid-container {
-        display: inline-grid;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px; 
-        grid-template-columns: 50% 50%;
-        border-style: solid;
-        border-color: #e8f4f8;
-        background-color: #e8f4f8;
-        padding: 2%;
-      }
-      #grid-outer-item {
+      .grid-outer-item {
         padding: 5%;
         display: grid;
         grid-template-columns: 30% 70%;
@@ -41,7 +38,7 @@ export class ProductOffering extends LitElement {
       }
       p {
         color: #808080;
-        font-size: 9pt; 
+        font-size: 9pt;
         padding: 20px;
         padding-left: 60px;
         margin: 0;
@@ -60,9 +57,8 @@ export class ProductOffering extends LitElement {
       .icon-background {
         background-color: white;
         border-radius: 50%;
-        padding: 2px; 
-        
-        margin: 5px; 
+        padding: 2px;
+        margin: 5px;
         margin-right: 10px;
         box-shadow: 10px 10px 25px 0 rgb(0 0 0 / 10%);
       }
@@ -75,84 +71,67 @@ export class ProductOffering extends LitElement {
   }
 
   static get properties() {
+    let props = {};
+    if (super.properties) {
+      props = super.properties;
+    }
     return {
-      title: { type: Array },
-      description: {type: Array },
-      image: {type: Image}, 
-      accentColor: { type: String },
-      icon: { type: Image },
-
+      ...props,
+      title: { type: String }, // this should be a String
+      description: { type: String }, // this should be a String OR a slot
+      source: { type: String }, // type Image is not supported in LitElement data bind
+      icon: { type: String }, // @lrnwebcomponents/simple-icon would be the way to go here
+      _titleOne: { type: String },
+      _titleTwo: { type: String },
     };
   }
 
   constructor() {
     super();
-    this.image = new Image();
-    this.image.src = "../assests/Images/placeholder1.jpeg";
-    this.image.alt = "alt description :(";
-    this.title = ["Title", "Title", "Title" , "Title"];
-    this.description = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.", 
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.", ]
+    this.alt = '';
+    this.icon =
+      '//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/2hOt81JN06lrDcxRKPUXOT/f16a6fbd6904a05df1b4a3e7ff6f8218/experts.svg';
   }
 
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'title') {
+        if (this.title.split(' ').length > 1) {
+          const tmp = this.title.split(' ');
+          this._titleOne = tmp.shift();
+          this._titleTwo = tmp.join(' ');
+        } else {
+          this._titleOne = this.title;
+        }
+      }
+    });
+  }
 
   render() {
     return html`
-      <div id="grid-container">
-        <div id="grid-outer-item">
-          <!-- <img class="square" src="../assets/images/placeholder1.jpeg" alt="Need to put somthing here" height=150px width=200px/> -->
-          ${this.image}
-          <div>
-            <div class="banner">
-              <div class="icon-background">
-                <img class="icon" src="//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/2hOt81JN06lrDcxRKPUXOT/f16a6fbd6904a05df1b4a3e7ff6f8218/experts.svg" alt="Real-world projects from industry experts">
-              </div>
-              <h4> <span class="underline"> ${this.title[0]} </span> </h4>
+      <div class="grid-outer-item">
+        <img
+          class="square"
+          src="${this.source}"
+          alt="${this.alt}"
+          height="150px"
+          width="200px"
+        />
+        <div>
+          <div class="banner">
+            <div class="icon-background">
+              <!-- implement simple-icon here -->
+              <img class="icon" src="${this.icon}" alt="" />
             </div>
-            <p> ${this.description[0] } </p>
+            <h4>
+              <span class="underline">${this._titleOne}</span>&nbsp;<span
+                >${this._titleTwo}</span
+              >
+            </h4>
           </div>
-        </div>
-        <div id="grid-outer-item">
-          <img class="square" src="../assets/images/placeholder3.jpeg" alt="Need to put somthing here" />
-          <div>
-            <div class="banner">
-              <div class="icon-background">
-                <img class="icon" src="//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/7z9cBzRbfbCJV5r3n4z1gy/6c4494fce7582ba3b72e3209753ec626/coding-icon.svg" alt="Technical mentor support">
-              </div>
-              <h4> ${this.title[1] } </h4>
-            </div>
-            <p> ${this.description[1] } </p>
-          </div>
-        </div>
-        <div id="grid-outer-item">
-          <img class="square" src="../assets/images/placeholder2.jpeg" alt="Need to put somthing here" />
-          <div>
-            <div class="banner">
-              <div class="icon-background">
-                <img class="icon" src="//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/753EFF3UhcMMUythiZIOoc/c7daef06c3876eddf8ecaa01026f1d46/career.svg" alt="Career Services">
-              </div>
-              <h4>${this.title[2] } </h4>
-            </div>
-            <p> ${this.description[2] } </p>
-          </div>
-        </div>
-        <div id="grid-outer-item">
-          <img class="square" src="../assets/images/placeholder4.jpeg" alt="Need to put somthing here" />
-          <div>
-            <div class="banner">
-              <div class="icon-background">
-                <img class="icon" src="//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/573uHj1EeYECLyuovPLJO4/a914f0f72469788f909a5c5df9db775f/learningsched.svg" alt="Flexible learning program">
-              </div>
-              <h4>${this.title[3] } </h4>
-            </div>
-            <p> ${this.description[3] } </p>
-          </div>
+          <p>${this.description}</p>
         </div>
       </div>
-
-    
     `;
   }
 }
