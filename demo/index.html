@@ -15,10 +15,14 @@
     import { html, render } from 'lit-html';
     import '../product-offering.js';
 
-    
+    const title = ["Real-world Projects from industry experts", "Techincal mentor support", "Career services" , "Flexible learning program"];
+    const description = ["With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.", 
+      "Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you and keeping you on track.", 
+      "You’ll have access to resume support, Github portfolio review and LinkedIn profile optimization to help you advance your career and land a high-paying role.", 
+      "Get a custom learning plan tailored to fit your busy life. Learn at your own pace and reach your personal goals on the schedule that works best for you."];
     render(
       html`
-        <product-offering>
+        <product-offering .title=${title} .description=${description}>
          
         </product-offering>
       `,
