@@ -6,30 +6,39 @@
     body {
       background: #fafafa;
     }
+    product-offering {
+      --product-offering-primary-color: pink;
+    }
+    #grid-container {
+        display: inline-grid;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px; 
+        grid-template-columns: 50% 50%;
+        border-style: solid;
+        border-color: var(--product-offering-primary-color, #e8f4f8);
+        background-color: var(--product-offering-primary-color, #e8f4f8);
+        padding: 2%;
+      }
   </style>
+    <script type="module">
+      import '../product-offering.js';
+    </script>
 </head>
 <body>
-  <div id="demo"></div>
 
-  <script type="module">
-    import { html, render } from 'lit-html';
-    import '../product-offering.js';
-
-    // const image = new Image();
-    // this.image.src = "../assets/Images/placeholder1.jpeg";
-    const title = ["Real-world Projects from industry experts", "Techincal mentor support", "Career services" , "Flexible learning program"];
-    const description = ["With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.", 
-      "Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you and keeping you on track.", 
-      "You’ll have access to resume support, Github portfolio review and LinkedIn profile optimization to help you advance your career and land a high-paying role.", 
-      "Get a custom learning plan tailored to fit your busy life. Learn at your own pace and reach your personal goals on the schedule that works best for you."];
-    render(
-      html`
-        <product-offering .title=${title} .description=${description} >
-         
-        </product-offering>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
+  <div id="grid-container">
+    <product-offering source="../assets/Images/placeholder1.jpeg" title="stuff" description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.">
+      
+    </product-offering>
+    <product-offering source="../assets/Images/placeholder2.jpeg" title="Real-world projects" description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.">
+      
+    </product-offering>
+    <product-offering source="../assets/Images/placeholder3.jpeg" title="Real stuff" description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.">
+      
+    </product-offering>
+    <product-offering source="../assets/Images/placeholder4.jpeg" title="gfgfgfiiijijij projects" description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.">
+      
+    </product-offering>
+</div>
 </body>
 </html>
