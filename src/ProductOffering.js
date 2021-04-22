@@ -41,6 +41,10 @@ export class ProductOffering extends LitElement {
       }
       p {
         color: #808080;
+        font-size: 9pt; 
+        padding: 20px;
+        padding-left: 60px;
+        margin: 0;
       }
       div {
         padding: 5px;
@@ -57,7 +61,9 @@ export class ProductOffering extends LitElement {
         background-color: white;
         border-radius: 50%;
         padding: 2px; 
+        
         margin: 5px; 
+        margin-right: 10px;
         box-shadow: 10px 10px 25px 0 rgb(0 0 0 / 10%);
       }
       .square {
@@ -83,7 +89,7 @@ export class ProductOffering extends LitElement {
     super();
     this.image = new Image();
     this.image.src = "../assests/Images/placeholder1.jpeg";
-    this.image.alt = "My alt description";
+    this.image.alt = "alt description :(";
     this.title = ["Title", "Title", "Title" , "Title"];
     this.description = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.", 
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida sit amet sem id hendrerit. Ut varius maximus mi, pretium cursus libero. Maecenas hendrerit lacinia finibus.",
