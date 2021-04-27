@@ -40,8 +40,8 @@ export class ProductOffering extends IntersectionObserverMixin(LitElement) {
       .banner {
         display: flex;
       }
-      .icon {
-        padding: 15px;
+      #simple-icon {
+        padding: 10px;
         height: 25px;
         width: 25px;
       }
@@ -111,8 +111,7 @@ export class ProductOffering extends IntersectionObserverMixin(LitElement) {
         <div>
           <div class="banner">
             <div class="icon-background">
-              <!-- implement simple-icon here -->
-              <simple-icon id="simple-icon" icon="icons:help"></simple-icon>
+              <simple-icon id="simple-icon" icon="${this.icon}"></simple-icon>
             </div>
             <h4>
               <span class="underline">${this._titleOne}</span>&nbsp;<span
