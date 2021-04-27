@@ -8,7 +8,14 @@ import '@lrnwebcomponents/simple-icon/simple-icon.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
-  // @todo make sure we ship this as an array of styles
+  /**
+   * Be able to change color of icons using simple colors
+   * --> use css varibale or element props
+   *
+   * Make sure intersectionObserverMixin works
+   *
+   * What should accent color prop change?
+   */
   static get styles() {
     return [
       ...super.styles,
