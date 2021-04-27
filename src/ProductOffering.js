@@ -23,7 +23,7 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
         .container {
           padding: 5%;
           display: grid;
-          grid-template-columns: 30% 70%;
+          grid-template-columns: 25% 75%;
         }
         .image {
           height: 150px;
@@ -31,7 +31,6 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
           border-radius: 2%;
         }
         .square {
-          margin-left: 10%;
         }
         #simple-icon {
           padding: 10px;
@@ -50,10 +49,11 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
           display: flex;
         }
         .underline {
-          text-decoration: underline;
+          border-bottom: 5px solid orange;
+          display: inline-block;
         }
         .sqaureDescription {
-          color: var(--simple-colors-default-theme-black-12);
+          color: var(--simple-colors-default-theme-grey-7);
           font-size: 12pt;
           padding: 20px;
           padding-left: 60px;
