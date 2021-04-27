@@ -1,21 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable lit/binding-positions */
 import { html, css, LitElement } from 'lit-element';
+import { IntersectionObserverMixin } from '@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js';
+// import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
+import '@lrnwebcomponents/simple-icon/simple-icon.js';
+import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
-// not sure what this is but screams of React / Webpack based build tooling
-// generic import of "images" from some location is not how "the platform" operates
-// and is a great example of why I don't like build tooling that is overly complex
-// sass suffers this same issue
-
-/** import { images } from '../assets/Themes/Images'; 
-
-/**
- * Figure out how to import images/icon?
- * get the images/icons as actual properties
- * Figure out how to underline just the first word
- * Fix word overlapping
- * Is the array okay?
- */
-
-export class ProductOffering extends LitElement {
+export class ProductOffering extends IntersectionObserverMixin(LitElement) {
   // @todo make sure we ship this as an array of styles
   static get styles() {
     return css`
@@ -77,20 +68,20 @@ export class ProductOffering extends LitElement {
     }
     return {
       ...props,
-      title: { type: String }, // this should be a String
-      description: { type: String }, // this should be a String OR a slot
-      source: { type: String }, // type Image is not supported in LitElement data bind
-      icon: { type: String }, // @lrnwebcomponents/simple-icon would be the way to go here
+      title: { type: String },
+      description: { type: String },
+      // description: { type: Slot },
+      source: { type: String },
+      icon: { type: String }, // @todo @lrnwebcomponents/simple-icon would be the way to go here
       _titleOne: { type: String },
       _titleTwo: { type: String },
+      accentColor: { type: String },
     };
   }
 
   constructor() {
     super();
     this.alt = '';
-    this.icon =
-      '//www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/2hOt81JN06lrDcxRKPUXOT/f16a6fbd6904a05df1b4a3e7ff6f8218/experts.svg';
   }
 
   updated(changedProperties) {
@@ -121,7 +112,7 @@ export class ProductOffering extends LitElement {
           <div class="banner">
             <div class="icon-background">
               <!-- implement simple-icon here -->
-              <img class="icon" src="${this.icon}" alt="" />
+              <simple-icon id="simple-icon" icon="icons:help"></simple-icon>
             </div>
             <h4>
               <span class="underline">${this._titleOne}</span>&nbsp;<span
@@ -130,6 +121,7 @@ export class ProductOffering extends LitElement {
             </h4>
           </div>
           <p>${this.description}</p>
+          <!--  <slot name = description > Example Slot </slot> -->
         </div>
       </div>
     `;

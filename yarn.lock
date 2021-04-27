@@ -928,6 +928,43 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@lrnwebcomponents/intersection-element@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/intersection-element/-/intersection-element-3.0.0.tgz#7a728a2c62d5cfdabae50b08a9a8ba7074a634ec"
+  integrity sha512-LP8tsaY7+gsAq/njD7zkyFt6PpW9DF/ui3KGaPP/cQVvnniON3DR/v2+kali5JV3E/JwdDhh/mWdu0KxLNj1zQ==
+
+"@lrnwebcomponents/simple-colors-shared-styles@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/simple-colors-shared-styles/-/simple-colors-shared-styles-3.0.5.tgz#e17f0f067e864e43e8cc7bf058daedbb060fe8b6"
+  integrity sha512-WJ5t/8SzTSxBPkmmWgOmD0wuS+nf0gccQH6PXeMlBv6MXU/+uGCih5dPMJg/iRRqOo13diRBfeCT0IvfJEQF7A==
+  dependencies:
+    lit-element "2.4.0"
+
+"@lrnwebcomponents/simple-colors@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/simple-colors/-/simple-colors-3.0.6.tgz#a783d71fb7223104c5e40736a745ffa192bfe0ed"
+  integrity sha512-1JRgYDa9RPFzDntZ82CWOLgnRYy6by+mDQbgTWbmvHYS38sGd2B7UyQ67fmUTdJMR+LL7uL/EZKQJVQmdISKrw==
+  dependencies:
+    "@lrnwebcomponents/simple-colors-shared-styles" "^3.0.5"
+    "@lrnwebcomponents/simple-picker" "^3.0.6"
+    lit-element "2.4.0"
+
+"@lrnwebcomponents/simple-icon@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/simple-icon/-/simple-icon-3.0.6.tgz#aee42b9cf9a2b0798a4d369d0e00a9cbed81dc2a"
+  integrity sha512-sp+dbqtW0MmxHnlcvpAIcbj/rM2DR6z2Dvd3ur1s99XnX9mmli3b6gmUUyVhQOOR3qz5J1GG6nHxTEgwxByNIA==
+  dependencies:
+    "@lrnwebcomponents/simple-colors" "^3.0.6"
+    lit-element "2.4.0"
+
+"@lrnwebcomponents/simple-picker@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@lrnwebcomponents/simple-picker/-/simple-picker-3.0.6.tgz#fde5340ed066949376be87115198979250593ce3"
+  integrity sha512-a5dvc8AC6hrbKTjG4WdgnSWSolvWYgb5ZkOTACpoLndHViSWkopK5W/pi6cyWKvCcQXDvz/dNQkwE6xvKus6qQ==
+  dependencies:
+    "@lrnwebcomponents/simple-icon" "^3.0.6"
+    lit-element "2.4.0"
+
 "@mdjs/core@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@mdjs/core/-/core-0.4.1.tgz#7c6a0383a75aa7c2268b284a962ebffcd648fc94"
@@ -4210,7 +4247,7 @@ listr2@^3.2.2:
     through "^2.3.8"
     wrap-ansi "^7.0.0"
 
-lit-element@^2.2.1, lit-element@^2.3.1, lit-element@^2.4.0:
+lit-element@2.4.0, lit-element@^2.2.1, lit-element@^2.3.1, lit-element@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.4.0.tgz#b22607a037a8fc08f5a80736dddf7f3f5d401452"
   integrity sha512-pBGLglxyhq/Prk2H91nA0KByq/hx/wssJBQFiYqXhGDvEnY31PRGYf1RglVzyLeRysu0IHm2K0P196uLLWmwFg==
@@ -5669,6 +5706,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
+
+simple-colors@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/simple-colors/-/simple-colors-0.1.0.tgz#ea9b806b610baafca3d2e72c4b42bc9c298425b0"
+  integrity sha1-6puAa2ELqvyj0ucsS0K8nCmEJbA=
 
 sinon-chai@^3.5.0:
   version "3.6.0"
