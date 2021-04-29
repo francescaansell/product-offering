@@ -10,11 +10,11 @@ import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
   /**
    * Be able to change color of icons using simple colors
-   * --> use css varibale or element props
+   * -> rn can change color but cannot use simple color
+   * -> accent color is just going to be the icon color?
    *
-   * Make sure intersectionObserverMixin works
+   * Find out if intersection observer is working
    *
-   * What should accent color prop change?
    */
   static get styles() {
     return [
@@ -40,9 +40,9 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
         .square {
         }
         #simple-icon {
-          padding: 10px;
-          height: 25px;
-          width: 25px;
+          padding: 8px;
+          height: 30px;
+          width: 30px;
         }
         .icon-background {
           background-color: white;
@@ -83,7 +83,6 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
       icon: { type: String },
       _titleOne: { type: String },
       _titleTwo: { type: String },
-      accentColor: { type: String },
     };
   }
 
@@ -110,37 +109,43 @@ export class ProductOffering extends IntersectionObserverMixin(SimpleColors) {
 
   render() {
     return html`
-      <!-- Biggest container -->
-      <div class="container">
-        <img
-          class="image"
-          src="${this.source}"
-          alt="${this.alt}"
-          height="150px"
-          width="200px"
-        />
+      ${this.elementVisible
+        ? html` <!-- Biggest container -->
+            <div class="container">
+              <img
+                class="image"
+                src="${this.source}"
+                alt="${this.alt}"
+                height="150px"
+                width="200px"
+              />
 
-        <div class="square">
-          <!-- Icon, header -->
-          <div class="squareTitle">
-            <!-- icon -->
-            <div class="icon-background">
-              <simple-icon id="simple-icon" icon="${this.icon}"></simple-icon>
-            </div>
-            <!-- header -->
-            <h4>
-              <span class="underline">${this._titleOne}</span>&nbsp;<span
-                >${this._titleTwo}</span
-              >
-            </h4>
-          </div>
+              <div class="square">
+                <!-- Icon, header -->
+                <div class="squareTitle">
+                  <!-- icon -->
+                  <div class="icon-background">
+                    <simple-icon
+                      id="simple-icon"
+                      accent-color="${this.accentColor}"
+                      icon="${this.icon}"
+                    ></simple-icon>
+                  </div>
+                  <!-- header -->
+                  <h4>
+                    <span class="underline">${this._titleOne}</span>&nbsp;<span
+                      >${this._titleTwo}</span
+                    >
+                  </h4>
+                </div>
 
-          <!-- descripton -->
-          <div class="sqaureDescription">
-            <slot name="description"> Example Slot </slot>
-          </div>
-        </div>
-      </div>
+                <!-- descripton -->
+                <div class="sqaureDescription">
+                  <slot name="description"> Example Slot </slot>
+                </div>
+              </div>
+            </div>`
+        : ``}
     `;
   }
 }

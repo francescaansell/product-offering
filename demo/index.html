@@ -18,28 +18,34 @@
         border-color: var(--product-offering-primary-color, #e8f4f8);
         background-color: var(--product-offering-primary-color, #e8f4f8);
         padding: 2%;
+        box-shadow: 10px 10px 25px 0 rgb(0 0 0 / 10%);
+        margin: 4%;
       }
   </style>
     <script type="module">
       import '../product-offering.js';
+      import '@lrnwebcomponents/simple-colors/simple-colors.js';
       
     </script>
 </head>
 <body>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div id="grid-container">
     <product-offering 
       source="../assets/Images/placeholder1.jpeg" 
       title="Real-world projects from industry experts" 
-      accentColor = "purple"
+      accent-color = "--simple-colors-default-theme-cyan-4"
       description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want."
-    >
+      icon="communication:business"
+      >
       <div slot="description">With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want.</div>
     </product-offering>
 
     <product-offering 
       source="../assets/Images/placeholder2.jpeg" 
       title="Technical mentor support" 
-      icon = "star" 
+      icon = "social:group" 
+      accent-color="pink"
       description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want."
     >
       <div slot="description">Our knowledgeable mentors guide your learning and are focused on answering your questions, motivating you and keeping you on track.</div>
@@ -48,9 +54,10 @@
     <product-offering 
       source="../assets/Images/placeholder3.jpeg" 
       title="Career services" 
-      icon = "icons:check" 
+      icon = "image:wb-incandescent" 
       description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want."
-    >
+      accent-color="purple"
+      >
       <div slot="description">You’ll have access to resume support, Github portfolio review and LinkedIn profile optimization to help you advance your career and land a high-paying role.</div>
     </product-offering>
 
@@ -58,9 +65,10 @@
       source="../assets/Images/placeholder4.jpeg" 
       accentColor = "red" 
       title="Flexible learning program" 
-      icon = "icons:search"  
+      icon = "timeline"  
       description="With real world projects and immersive content built in partnership with top tier companies, you’ll master the tech skills companies want."
-    >
+      accent-color= "blue"
+      >
       <div slot="description">Get a custom learning plan tailored to fit your busy life. Learn at your own pace and reach your personal goals on the schedule that works best for you.</div>
     </product-offering>
 </div>
